@@ -1,0 +1,24 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 2026-09-07
+  Changes:
+    - Moved prototype creation to data-final-fixes.lua so base game data-updates
+      don't overwrite scaled speed/max_speed values.
+    - Recipes made more expensive: added steel plates, processing units,
+      and increased ingredient counts to match belt-tier costs.
+    - Reduced tint intensity on tiered bot icons (alpha 0.45, was 1.0).
+    - Added optional superior tier (3×) when Krastorio 2 is installed.
+      Uses kr-imersite-crystal, unlocked by kr-logistic-5 tech.
+    - Added dedicated technologies (fast/express/turbo/superior robotics)
+      with chained prerequisites: previous bot tech + corresponding belt tech.
+    - Energy efficiency improved per tier: 0.80/0.65/0.50/0.35.
+    - Energy storage scaled 1.5×/2×/2.5×/3× per tier.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2026-09-04
+  Features:
+    - Fast, express, and turbo tiers for logistic and construction robots.
+    - Each tier improves speed, cargo capacity, energy storage, energy efficiency, and health.
+    - Recipes chain: each tier consumes the previous tier, mirroring the belt upgrade chain.
+    - Fast bots unlocked by Logistics 2, express by Logistics 3, turbo by Turbo transport belt (Space Age).

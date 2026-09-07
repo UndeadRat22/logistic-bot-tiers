@@ -1,0 +1,8 @@
+{
+  "name": "bt-e2e",
+  "version": "0.0.1",
+  "title": "bt-e2e",
+  "author": "probe",
+  "factorio_version": "2.1",
+  "dependencies": ["logistic-bot-tiers"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "logistic-bot-tiers",
+  "version": "0.2.0",
+  "title": "Logistic Bot Tiers",
+  "author": "deadrat22",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1.0",
+    "(?) space-age >= 2.1.0",
+    "(?) Krastorio2 >= 2.0.0",
+    "(?) Krastorio2-spaced-out >= 2.0.0"
+  ],
+  "description": "Tiered logistic and construction robots, parallel to transport belt tiers. Fast, express, turbo, advanced, and superior bots with scaled speed, cargo, energy storage, and efficiency. Each tier recipe consumes the previous tier, mirroring the belt upgrade chain. Turbo requires Space Age; advanced requires Krastorio 2 without Space Age; superior requires Krastorio 2."
+}
