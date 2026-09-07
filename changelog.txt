@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 2026-09-07
+  Changes:
+    - Added configurable tier multipliers via mod settings (speed, cargo, energy
+      storage, energy efficiency, health for each tier).
+    - Bumped version to 0.3.0.
+
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2026-09-07
   Changes:

@@ -122,6 +122,26 @@ local BOT_TYPES = {
 }
 
 ------------------------------------------------------------------------------
+-- Apply user-configurable settings (settings.lua)
+------------------------------------------------------------------------------
+
+local function get_setting(name, default)
+  local s = settings.startup[name]
+  if s and s.value ~= nil then return s.value end
+  return default
+end
+
+for _, tier_name in ipairs(TIER_ORDER) do
+  local tier = TIERS[tier_name]
+  local prefix = "lbt-" .. tier_name .. "-"
+  tier.speed_mult  = get_setting(prefix .. "speed-mult",  tier.speed_mult)
+  tier.cargo_add   = get_setting(prefix .. "cargo-add",   tier.cargo_add)
+  tier.energy_mult = get_setting(prefix .. "energy-mult", tier.energy_mult)
+  tier.energy_eff  = get_setting(prefix .. "energy-eff",  tier.energy_eff)
+  tier.health_mult = get_setting(prefix .. "health-mult", tier.health_mult)
+end
+
+------------------------------------------------------------------------------
 -- Helpers
 ------------------------------------------------------------------------------
 

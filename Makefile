@@ -34,14 +34,14 @@ test-e2e-k2so:
 test-e2e-all: test-e2e test-e2e-k2 test-e2e-k2-nosa test-e2e-k2so
 
 lint:
-	luacheck data-final-fixes.lua --no-config || true
+	luacheck data-final-fixes.lua settings.lua --no-config || true
 
 package:
 	@echo "Packaging $(MOD_NAME) $(VERSION)..."
 	@rm -rf $(PACKAGE_DIR) $(RELEASES_DIR)
 	@mkdir -p $(RELEASES_DIR)
 	@mkdir -p $(PACKAGE_DIR)
-	@cp -r changelog.txt data-final-fixes.lua info.json locale README.md thumbnail.png $(PACKAGE_DIR)/
+	@cp -r changelog.txt data-final-fixes.lua info.json locale README.md settings.lua thumbnail.png $(PACKAGE_DIR)/
 	@zip -r $(PACKAGE_DIR).zip $(PACKAGE_DIR) >/dev/null
 	@mv $(PACKAGE_DIR).zip $(RELEASES_DIR)/
 	@rm -rf $(PACKAGE_DIR)
