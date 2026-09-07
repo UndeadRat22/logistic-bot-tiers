@@ -16,7 +16,7 @@ local TIERS = {
     energy_mult = 1.5,
     energy_eff  = 0.80,
     health_mult = 1.5,
-    tint        = { r = 0.75, g = 0.55, b = 0.55, a = 0.45 },
+    tint        = { r = 0.75, g = 0.55, b = 0.55, a = 1.0 },
     -- Tech prerequisites: previous bot tech + corresponding belt tech
     belt_tech   = "logistics-2",
     ingredients = {
@@ -32,7 +32,7 @@ local TIERS = {
     energy_mult = 2.0,
     energy_eff  = 0.65,
     health_mult = 2.0,
-    tint        = { r = 0.55, g = 0.65, b = 0.80, a = 0.45 },
+    tint        = { r = 0.55, g = 0.65, b = 0.80, a = 1.0 },
     belt_tech   = "logistics-3",
     ingredients = {
       { type = "item",  name = "iron-gear-wheel", amount = 10 },
@@ -49,7 +49,7 @@ local TIERS = {
     energy_mult = 2.5,
     energy_eff  = 0.50,
     health_mult = 2.5,
-    tint        = { r = 0.55, g = 0.75, b = 0.55, a = 0.45 },
+    tint        = { r = 0.55, g = 0.75, b = 0.55, a = 1.0 },
     belt_tech   = "turbo-transport-belt",
     ingredients = {
       { type = "item",  name = "tungsten-plate",  amount = 3 },
@@ -67,7 +67,7 @@ local TIERS = {
     energy_mult = 2.5,
     energy_eff  = 0.50,
     health_mult = 2.5,
-    tint        = { r = 0.50, g = 0.75, b = 0.50, a = 0.45 },
+    tint        = { r = 0.50, g = 0.75, b = 0.50, a = 1.0 },
     belt_tech   = "kr-logistic-4",
     ingredients = {
       { type = "item",  name = "steel-plate",     amount = 3 },
@@ -85,7 +85,7 @@ local TIERS = {
     energy_mult = 3.0,
     energy_eff  = 0.35,
     health_mult = 3.0,
-    tint        = { r = 0.70, g = 0.55, b = 0.75, a = 0.45 },
+    tint        = { r = 0.70, g = 0.55, b = 0.75, a = 1.0 },
     belt_tech   = "kr-logistic-5",
     ingredients = {
       { type = "item",  name = "imersite-gear-wheel", amount = 5 },

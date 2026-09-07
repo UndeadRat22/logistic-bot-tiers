@@ -1,4 +1,4 @@
-# Bot Tiers
+# Logistic Bot Tiers
 
 Tiered logistic and construction robots, parallel to transport belt tiers. Just as belts progress transport-belt → fast → express → turbo, this mod adds fast, express, turbo, advanced, and superior tiers for logistic and construction robots. Turbo requires Space Age; advanced requires Krastorio 2 without Space Age; superior requires Krastorio 2.
 

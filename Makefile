@@ -41,7 +41,7 @@ package:
 	@rm -rf $(PACKAGE_DIR) $(RELEASES_DIR)
 	@mkdir -p $(RELEASES_DIR)
 	@mkdir -p $(PACKAGE_DIR)
-	@cp -r changelog.txt data-final-fixes.lua info.json locale README.md $(PACKAGE_DIR)/
+	@cp -r changelog.txt data-final-fixes.lua info.json locale README.md thumbnail.png $(PACKAGE_DIR)/
 	@zip -r $(PACKAGE_DIR).zip $(PACKAGE_DIR) >/dev/null
 	@mv $(PACKAGE_DIR).zip $(RELEASES_DIR)/
 	@rm -rf $(PACKAGE_DIR)
