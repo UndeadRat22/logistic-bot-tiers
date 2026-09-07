@@ -80,28 +80,33 @@ script.on_event(defines.events.on_tick, function()
 
   local base_speed = {}
   local base_cargo = {}
-  local base_health = {}
   for _, bot in ipairs(BOT_TYPES) do
     base_speed[bot] = prototypes.entity[bot].speed
     base_cargo[bot]  = prototypes.entity[bot].max_payload_size
-    base_health[bot] = prototypes.entity[bot].max_health
   end
 
-  local function measure_max_energy(name)
+  local function measure_entity_stat(name, field)
     local surface = game.surfaces[1]
     local pos = surface.find_non_colliding_position("logistic-robot", { math.random(-50, 50), math.random(-50, 50) }, 100, 4)
     if not pos then return nil end
     local ent = surface.create_entity({ name = name, position = pos, force = "player" })
     if not ent or not ent.valid then return nil end
-    ent.energy = 1e12
-    local val = ent.energy
+    local val
+    if field == "energy" then
+      ent.energy = 1e12
+      val = ent.energy
+    elseif field == "health" then
+      val = ent.health
+    end
     ent.destroy()
     return val
   end
 
   local base_energy = {}
+  local base_health = {}
   for _, bot in ipairs(BOT_TYPES) do
-    base_energy[bot] = measure_max_energy(bot)
+    base_energy[bot] = measure_entity_stat(bot, "energy")
+    base_health[bot] = measure_entity_stat(bot, "health")
   end
 
   ------------------------------------------------------------
@@ -125,9 +130,10 @@ script.on_event(defines.events.on_tick, function()
           check(proto.max_payload_size == expected_cargo,
             name .. " max_payload_size = " .. expected_cargo .. " (got " .. tostring(proto.max_payload_size) .. ")")
           if base_health[bot] then
+            local tier_health = measure_entity_stat(name, "health")
             local expected_health = math.floor(base_health[bot] * tc.health_mult + 0.5)
-            check(proto.max_health ~= nil and proto.max_health == expected_health,
-              name .. " max_health = " .. expected_health .. " (got " .. tostring(proto.max_health) .. ")")
+            check(tier_health ~= nil and tier_health == expected_health,
+              name .. " max_health = " .. expected_health .. " (got " .. tostring(tier_health) .. ")")
           end
           local base_epm = prototypes.entity[bot].energy_per_move
           if base_epm then
@@ -141,7 +147,7 @@ script.on_event(defines.events.on_tick, function()
             check(proto.energy_per_tick ~= nil and math.abs(proto.energy_per_tick - expected_ept) < 1e-6,
               name .. " energy_per_tick = base*" .. tc.energy_eff .. " (got " .. tostring(proto.energy_per_tick) .. ")")
           end
-          local tier_energy = measure_max_energy(name)
+          local tier_energy = measure_entity_stat(name, "energy")
           if base_energy[bot] and tier_energy then
             local expected_energy = base_energy[bot] * tc.energy_mult
             check(math.abs(tier_energy - expected_energy) < 1.0,
